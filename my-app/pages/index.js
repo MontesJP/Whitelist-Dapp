@@ -10,6 +10,7 @@ export default function Home() {
     const [joinedWhitelist, setJoinedWhitelist] = useState(false);
     const [loading, setLoading] = useState(false);
     const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
+    const [maxWhitelistedAddresses, setMaxWhitelistedAddresses] = useState(0);
     const web3ModalRef = useRef();
 
     const getProviderOrSigner = async (needSigner = false) => {
@@ -61,6 +62,10 @@ export default function Home() {
                 abi,
                 provider
             );
+
+            // const _maxNumberOfWhitelisted =
+            //     await whitelistContract.maxWhitelistedAddresses();
+            // setMaxWhitelistedAddresses(_maxNumberOfWhitelisted);
 
             const _numberOfWhitelisted =
                 await whitelistContract.numAddressesWhitelisted();
